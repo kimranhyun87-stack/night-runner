@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080a0f" />
+    <meta
+      name="description"
+      content="Night Runner — 도심 속 야간 러닝 코스 & 안전 쉼터 큐레이션. 밝은 길, 평지, 화장실, 자판기 조건으로 tonight's run을 찾으세요."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23080a0f'/%3E%3Cpath d='M17.5 13.2A6.3 6.3 0 0 1 10.3 6a6.3 6.3 0 1 0 7.2 7.2Z' fill='%23b6ff4a'/%3E%3C/svg%3E"
+    />
+    <title>Night Runner — 도심 속 야간 러닝 코스 & 안전 쉼터 맵</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <!-- 01 HEADER -->
+    <header class="site-head">
+      <div class="container head-in">
+        <a class="logo" href="./index.html" aria-label="Night Runner 홈">
+          <span class="logo-mark"
+            ><svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <path
+                d="M20 13.6A8.4 8.4 0 0 1 10.4 4a8.4 8.4 0 1 0 9.6 9.6Z"
+              /></svg
+          ></span>
+          <span class="logo-txt">NIGHT<b>RUNNER</b></span>
+        </a>
+        <nav class="nav" aria-label="주 메뉴">
+          <a class="nav-link" data-nav="courses" href="./courses.html"
+            >COURSES</a
+          >
+          <a class="nav-link" data-nav="map" href="./courses.html?view=map"
+            >MAP</a
+          >
+          <a class="nav-link" data-nav="mate" href="./mate.html">MATE</a>
+          <a class="nav-link" data-nav="myrun" href="./my-run.html">MY RUN</a>
+        </nav>
+        <div class="head-actions">
+          <a class="save-pill" href="./my-run.html" title="저장된 코스 보기">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 20.4 4.8 13a4.7 4.7 0 0 1 0-6.6 4.5 4.5 0 0 1 6.5 0l.7.7.7-.7a4.5 4.5 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6L12 20.4Z"
+              />
+            </svg>
+            SAVED <span class="num tnum" data-saved-count>0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="homeRoot">
+      <!-- 02 HERO -->
+      <!-- 02 HERO (에디토리얼 스타일로 개조!) -->
+      <section class="hero hero-editorial container">
+        <!-- 📸 1. 공중에 흩뿌릴 사진들 (경로는 본인 사진에 맞게 수정해주세요!) -->
+        <img
+          src="./img/메인사진_(컬러).png"
+          alt="메인 러너"
+          class="float-img img-main"
+        />
+        <img
+          src="./img/서브사진_(컬러).png"
+          alt="신발 디테일"
+          class="float-img img-sub1"
+        />
+        <img
+          src="./img/메인사진_4(컬러).png"
+          alt="야간 도심"
+          class="float-img img-sub2"
+        />
+
+        <!-- 📝 2. 화면 중앙을 장악할 거대한 텍스트 구역 -->
+        <div class="hero-content">
+          <h1>
+            <span class="line-mask"
+              ><span class="hero-eyebrow">NIGHT RUNNING CURATION</span></span
+            >
+            <!-- 타이핑 효과가 적용될 두 줄 -->
+            <div class="typewriter-container">
+              <!--<span class="line-mask"
+                >--><span class="massive-text line-typing line-1"
+                >RUN AFTER</span
+              ><!--</span
+              >-->
+              <!--line-typing line-1 추가-->
+              <!--<span class="line-mask"
+                >--><span class="massive-text line-typing line-2 accent"
+                >DARK.</span
+              ><!--</span
+              >-->
+            </div>
+            <!--accent는 뒤로붙힘 line-typing line-2 추가-->
+          </h1>
+          <p class="hero-sub">
+            도시의 밤, 나에게 맞는 러닝 코스를 찾다.
+            <b>조도 · 경사 · 편의시설 · 안전 쉼터</b>를 기준으로 큐레이션한 서울
+            야간 러닝 코스 9선과, 함께 달릴 러닝 메이트까지.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="./courses.html"
+              >코스 찾기 <span aria-hidden="true">→</span></a
+            >
+            <a class="btn btn-ghost btn-lg" href="./courses.html?view=map"
+              >지도 보기</a
+            >
+          </div>
+          <div class="hero-mini">
+            <div>
+              <b class="tnum">09<i>+</i></b
+              ><span>CURATED COURSES</span>
+            </div>
+            <div>
+              <b class="tnum">59.2<i>KM</i></b
+              ><span>TOTAL ROUTE</span>
+            </div>
+            <div>
+              <b class="tnum">85<i>%</i></b
+              ><span>AVG SAFETY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 📊 3. 상태 박스 (기존 코드 완벽하게 합체 완료!) -->
+        <div class="status-panel floaty float-status">
+          <div class="sp-row">
+            <span class="sp-label"
+              ><span class="live-dot blink"></span>TONIGHT STATUS</span
+            >
+            <span class="sp-clock tnum" id="liveClock" style="color: #fff"
+              >00:00:00</span
+            >
+          </div>
+          <div class="sp-bars">
+            <div class="sp-bar">
+              <label>RUNNING INDEX <b class="tnum">82</b></label>
+              <div class="meter">
+                <i
+                  id="runIndexBar"
+                  style="
+                    width: 0%;
+                    transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
+                  "
+                ></i>
+              </div>
+            </div>
+            <div class="sp-bar">
+              <label>ILLUMINATION <b class="tnum">84</b></label>
+              <div class="meter cy">
+                <i class="bar-fill" style="width: 84%; background: #fff"></i>
+              </div>
+            </div>
+          </div>
+          <p class="sp-foot" id="bestCourse">
+            오늘의 베스트 루트를 계산하는 중…
+          </p>
+        </div>
+      </section>
+      <!-- 💡 주의: 이 바로 아래부터 03 COURSES 같은 다음 섹션이 정상적으로 이어져야 합니다! -->
+
+      <!-- 03 TICKER -->
+      <div class="ticker" aria-hidden="true"><div class="marquee" id="tickerTrack"></div></div>
+
+      <!-- 04 QUICK SEARCH -->
+      <section class="container sec" style="margin-top: 64px">
+        <div class="qsearch reveal">
+          <h2 class="qs-title">WHERE DO YOU WANT TO RUN TONIGHT?</h2>
+          <div class="qs-grid">
+            <div class="qs-group">
+              <h4>AREA · 지역</h4>
+              <div class="qs-chips">
+                <button class="chip" data-qs-area="한강">
+                  <i class="chip-dot dot-cy"></i>한강
+                </button>
+                <button class="chip" data-qs-area="공원">
+                  <i class="chip-dot dot-cy"></i>공원
+                </button>
+                <button class="chip" data-qs-area="도심">
+                  <i class="chip-dot dot-cy"></i>도심
+                </button>
+                <button class="chip" data-qs-area="강변">
+                  <i class="chip-dot dot-cy"></i>강변
+                </button>
+              </div>
+            </div>
+            <div class="qs-group">
+              <h4>SAFETY · 안전</h4>
+              <div class="qs-chips">
+                <button class="chip" data-qs-tag="bright">
+                  <i class="chip-dot"></i>밝은 길
+                </button>
+              </div>
+            </div>
+            <div class="qs-group">
+              <h4>TERRAIN · 지형</h4>
+              <div class="qs-chips">
+                <button class="chip" data-qs-tag="flat">
+                  <i class="chip-dot"></i>평지
+                </button>
+              </div>
+            </div>
+            <div class="qs-group">
+              <h4>FACILITIES · 편의시설</h4>
+              <div class="qs-chips">
+                <button class="chip" data-qs-tag="restroom">
+                  <i class="chip-dot"></i>화장실
+                </button>
+                <button class="chip" data-qs-tag="vending">
+                  <i class="chip-dot"></i>자판기
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="qs-foot">
+            <p class="qs-count" id="qsCount"></p>
+            <button class="btn btn-primary btn-md" id="qsGo">
+              조건으로 코스 찾기 <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 TONIGHT'S RUN -->
+      <section class="container sec">
+        <div class="sec-head reveal">
+          <div>
+            <p class="sec-eyebrow">TONIGHT'S RUN</p>
+            <h2 class="sec-title">오늘 밤 추천 코스</h2>
+            <p class="sec-sub">
+              안전 점수 기준으로 엄선한 6개 루트. 카드의 하트를 누르면 MY RUN에
+              저장됩니다.
+            </p>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="./courses.html"
+            >전체 코스 보기 <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="card-grid" id="tonightGrid"></div>
+      </section>
+
+      <!-- 06 SAFETY HIGHLIGHT -->
+      <section class="container sec">
+        <div class="sec-head reveal">
+          <div>
+            <p class="sec-eyebrow">SAFETY FIRST</p>
+            <h2 class="sec-title">밤길, 데이터로 확인하고 달리세요</h2>
+            <p class="sec-sub">
+              모든 코스는 조도 · 쉼터 · 유동인구 · 편의시설 네 가지 축으로
+              점수화됩니다.
+            </p>
+          </div>
+        </div>
+        <div class="safety-grid">
+          <div class="safety-panel reveal">
+            <h3>NETWORK SAFETY INDEX</h3>
+            <div id="safetyBars"></div>
+            <p class="safety-note">
+              ※ 본 지표는 큐레이션 정보 기반이며, 실제 조도 및 시설 운영 상태는
+              현장 상황에 따라 달라질 수 있습니다. 야간 러닝 시 밝은 복장과 전조
+              라이트를 권장합니다.
+            </p>
+          </div>
+          <div>
+            <div class="rule-list">
+              <div class="rule-card reveal">
+                <span class="r-ico"
+                  ><svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  >
+                    <path
+                      d="M12 21V8M12 8c0-2.2 1.8-4 4-4h1M12 21h-3M12 21h3"
+                    />
+                    <path
+                      d="M17 6.5a2.3 2.3 0 1 1-2.3-2.3"
+                      fill="currentColor"
+                      stroke="none"
+                    /></svg
+                ></span>
+                <div>
+                  <h4>밝은 길을 우선합니다</h4>
+                  <p>
+                    가로등 조도 4점 미만 코스는 '밝은 길' 태그를 붙이지
+                    않습니다. 어두운 구간은 코스에서 제외하거나 주의 구간으로
+                    표기합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="rule-card cy reveal" style="transition-delay: 80ms">
+                <span class="r-ico"
+                  ><svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3.5 10.5 12 4l8.5 6.5M6 10v9.5M18 10v9.5M6 15h12"
+                    /></svg
+                ></span>
+                <div>
+                  <h4>쉼터는 500m 이내에</h4>
+                  <p>
+                    루트 어디에서든 벤치 · 정자 · 편의점으로 5분 안에 도달할 수
+                    있는지만 검증합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="rule-card reveal" style="transition-delay: 160ms">
+                <span class="r-ico"
+                  ><svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 3 5 5.8v5.4c0 4.4 2.9 7.6 7 9.3 4.1-1.7 7-4.9 7-9.3V5.8L12 3Z"
+                    />
+                    <path d="m9 11.5 2.2 2.2L15.5 9.5" /></svg
+                ></span>
+                <div>
+                  <h4>"안전하다"고 말하지 않습니다</h4>
+                  <p>
+                    절대적 안전 대신 수치와 근거를 보여드립니다. 별점과
+                    체크리스트는 모두 공개된 기준표에서 계산됩니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="safety-stats" id="safetyStats"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 NIGHT COACH (Gemini 연동 예정 · 현재 목업) -->
+      <section class="container sec">
+        <div class="coach reveal">
+          <div class="coach-head">
+            <span
+              class="r-ico"
+              style="
+                width: 42px;
+                height: 42px;
+                border-radius: 11px;
+                display: grid;
+                place-items: center;
+                background: rgba(82, 216, 255, 0.1);
+                color: var(--cy);
+                border: 1px solid rgba(82, 216, 255, 0.3);
+              "
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 3.5 13.8 9l5.7 1.8-5.7 1.8L12 18l-1.8-5.4L4.5 10.8 10.2 9 12 3.5Z"
+                />
+                <path
+                  d="M19 15.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6Z"
+                  stroke-width="1.3"
+                /></svg
+            ></span>
+            <h3>NIGHT COACH에게 물어보세요</h3>
+            <span class="coach-badge">AI PREVIEW · Gemini 연동 예정</span>
+          </div>
+          <div class="coach-q">
+            <button class="q-chip" data-q="q1">
+              오늘 밤, 가장 안전한 코스는?
+            </button>
+            <button class="q-chip" data-q="q2">초보자인데 5km 추천해줘</button>
+            <button class="q-chip" data-q="q3">업힐 훈련할 코스 있어?</button>
+          </div>
+          <div class="coach-a" id="coachAnswer">
+            질문을 고르면 코스 데이터를 기반으로 코치가 답합니다. 정식
+            배포에서는 Google Gemini가 실시간으로 답변을 생성합니다.
+            <span style="color: var(--mute)">— DEPLOYMENT_GUIDE.md 참고</span>
+          </div>
+          <p class="coach-foot">
+            현재 화면은 실제 코스 데이터로 만든 목업 응답입니다 ·
+            <button
+              id="coachReset"
+              style="
+                color: var(--cy);
+                text-decoration: underline;
+                text-underline-offset: 3px;
+              "
+            >
+              답변 초기화
+            </button>
+          </p>
+        </div>
+      </section>
+
+      <!-- 08 RUN TOGETHER -->
+      <section class="container sec">
+        <div class="sec-head reveal">
+          <div>
+            <p class="sec-eyebrow">RUN TOGETHER</p>
+            <h2 class="sec-title">혼자보다 함께, 밤길이 더 안전해집니다</h2>
+            <p class="sec-sub">
+              요일 · 시간 · 페이스가 맞는 러너를 찾고, JOIN 한 번으로 참여
+              신청이 끝납니다.
+            </p>
+          </div>
+          <a class="btn btn-primary btn-sm" href="./mate.html"
+            >전체 모집 보기 <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="mate-list" id="mateTeaser"></div>
+      </section>
+    </main>
+
+    <!-- 09 FOOTER -->
+    <footer class="site-foot">
+      <div class="container">
+        <div class="foot-grid">
+          <div class="foot-brand">
+            <a class="logo" href="./index.html"
+              ><span class="logo-mark"
+                ><svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <path
+                    d="M20 13.6A8.4 8.4 0 0 1 10.4 4a8.4 8.4 0 1 0 9.6 9.6Z"
+                  /></svg></span
+              ><span class="logo-txt">NIGHT<b>RUNNER</b></span></a
+            >
+            <p>
+              도심 속 야간 러닝 코스 & 안전 쉼터 큐레이션. 밝은 길, 평지,
+              화장실, 자판기 — 당신이 밤에 달리기 전에 확인하고 싶은 것들을 먼저
+              정리해둡니다.
+            </p>
+          </div>
+          <div>
+            <p class="foot-h">PAGES</p>
+            <div class="foot-links">
+              <a href="./courses.html">Course Explorer</a>
+              <a href="./courses.html?view=map">Dark Map</a>
+              <a href="./mate.html">Running Mate</a>
+              <a href="./my-run.html">My Run</a>
+            </div>
+          </div>
+          <div>
+            <p class="foot-h">NIGHT RULES</p>
+            <p class="foot-note">
+              야간에는 밝은 색상 복장과 전조 라이트를 착용하세요.<br />이어폰은
+              한쪽만, 볼륨은 낮게.<br />본 서비스의 안전 점수는 정보 기반
+              지표이며 절대적 안전을 보증하지 않습니다.
+            </p>
+          </div>
+        </div>
+        <div class="foot-bar">
+          <span>© 2026 <b>NIGHT RUNNER</b> — NIGHT URBAN RUNNING CURATION</span>
+          <span>LOCAL DEMO BUILD · HTML / CSS / JS · NO FRAMEWORK</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 10 MOBILE NAV -->
+    <nav class="mobile-nav" aria-label="모바일 메뉴">
+      <a data-nav="home" href="./index.html"
+        ><svg
+          width="19"
+          height="19"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="4" y="4" width="7" height="7" rx="1" />
+          <rect x="13" y="4" width="7" height="7" rx="1" />
+          <rect x="4" y="13" width="7" height="7" rx="1" />
+          <rect x="13" y="13" width="7" height="7" rx="1" /></svg
+        >HOME</a
+      >
+      <a data-nav="courses" href="./courses.html"
+        ><svg
+          width="19"
+          height="19"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="6" cy="19" r="2.4" />
+          <circle cx="18" cy="5" r="2.4" />
+          <path d="M8.4 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5" /></svg
+        >COURSES</a
+      >
+      <a data-nav="mate" href="./mate.html"
+        ><svg
+          width="19"
+          height="19"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="9" cy="8.5" r="3.2" />
+          <path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5" />
+          <path
+            d="M15.5 5.7a3.2 3.2 0 0 1 0 5.6M17.6 14.9c1.6.8 2.6 2.4 2.9 4.6"
+          /></svg
+        >MATE</a
+      >
+      <a data-nav="myrun" href="./my-run.html"
+        ><svg
+          width="19"
+          height="19"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M12 20.4 4.8 13a4.7 4.7 0 0 1 0-6.6 4.5 4.5 0 0 1 6.5 0l.7.7.7-.7a4.5 4.5 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6L12 20.4Z"
+          /></svg
+        >MY RUN</a
+      >
+    </nav>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/filter.js"></script>
+    <script src="./js/bookmark.js"></script>
+    <script src="./js/mate.js"></script>
+    <script src="./js/home.js"></script>
+  </body>
+</html>

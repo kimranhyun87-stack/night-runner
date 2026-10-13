@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080a0f" />
+  <meta name="description" content="Night Runner Course Explorer — 안전·지형·편의시설 태그 필터로 서울 야간 러닝 코스를 탐색하세요." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23080a0f'/%3E%3Cpath d='M17.5 13.2A6.3 6.3 0 0 1 10.3 6a6.3 6.3 0 1 0 7.2 7.2Z' fill='%23b6ff4a'/%3E%3C/svg%3E" />
+  <title>Course Explorer — Night Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <div class="container head-in">
+      <a class="logo" href="./index.html" aria-label="Night Runner 홈">
+        <span class="logo-mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 13.6A8.4 8.4 0 0 1 10.4 4a8.4 8.4 0 1 0 9.6 9.6Z"/></svg></span>
+        <span class="logo-txt">NIGHT<b>RUNNER</b></span>
+      </a>
+      <nav class="nav" aria-label="주 메뉴">
+        <a class="nav-link" data-nav="courses" href="./courses.html">COURSES</a>
+        <a class="nav-link" data-nav="map" href="./courses.html?view=map">MAP</a>
+        <a class="nav-link" data-nav="mate" href="./mate.html">MATE</a>
+        <a class="nav-link" data-nav="myrun" href="./my-run.html">MY RUN</a>
+      </nav>
+      <div class="head-actions">
+        <a class="save-pill" href="./my-run.html" title="저장된 코스 보기">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4 4.8 13a4.7 4.7 0 0 1 0-6.6 4.5 4.5 0 0 1 6.5 0l.7.7.7-.7a4.5 4.5 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6L12 20.4Z"/></svg>
+          SAVED <span class="num tnum" data-saved-count>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="explorerRoot" class="container">
+    <!-- PAGE HEAD -->
+    <div class="page-head">
+      <div>
+        <p class="sec-eyebrow">COURSE EXPLORER</p>
+        <h1>오늘 밤의 루트를<br/>찾아보세요</h1>
+        <p class="ph-sub">태그 필터 · 거리 조건 · 다크 맵 뷰로 서울 야간 러닝 코스 9선을 탐색합니다.</p>
+      </div>
+      <div class="view-toggle" role="tablist" aria-label="보기 전환">
+        <button data-view="grid" class="on"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>GRID</button>
+        <button data-view="map"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 4-5 2v14l5-2 6 2 5-2V4l-5 2-6-2ZM9 4v14M15 6v14"/></svg>MAP</button>
+      </div>
+    </div>
+
+    <div class="explorer">
+      <!-- FILTER SIDEBAR -->
+      <div id="filtersSlot">
+        <aside class="filters" id="filterPanel" aria-label="코스 필터">
+          <div class="f-search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="m20 20-4.8-4.8"/></svg>
+            <input id="qInput" type="search" placeholder="코스명 · 지역 검색" autocomplete="off" />
+          </div>
+
+          <div class="f-group">
+            <h4>SAFETY · 안전</h4>
+            <div class="f-chips">
+              <button class="chip" data-tag="bright"><i class="chip-dot"></i>밝은 길</button>
+              <button class="chip" data-tag="shelter"><i class="chip-dot"></i>안전 쉼터</button>
+              <button class="chip" data-tag="cctv"><i class="chip-dot"></i>CCTV 인접</button>
+              <button class="chip" data-tag="crowded"><i class="chip-dot"></i>사람 많음</button>
+            </div>
+          </div>
+
+          <div class="f-group">
+            <h4>TERRAIN · 지형</h4>
+            <div class="f-chips">
+              <button class="chip" data-tag="flat"><i class="chip-dot"></i>평지</button>
+              <button class="chip" data-tag="mild"><i class="chip-dot"></i>완만한 경사</button>
+              <button class="chip" data-tag="uphill"><i class="chip-dot"></i>업힐 있음</button>
+            </div>
+          </div>
+
+          <div class="f-group">
+            <h4>FACILITIES · 편의시설</h4>
+            <div class="f-chips">
+              <button class="chip" data-tag="restroom"><i class="chip-dot"></i>화장실</button>
+              <button class="chip" data-tag="vending"><i class="chip-dot"></i>자판기</button>
+              <button class="chip" data-tag="convenience"><i class="chip-dot"></i>편의점</button>
+              <button class="chip" data-tag="bench"><i class="chip-dot"></i>벤치</button>
+              <button class="chip" data-tag="water"><i class="chip-dot"></i>음수대</button>
+            </div>
+          </div>
+
+          <div class="f-group">
+            <h4>DISTANCE · 거리</h4>
+            <div class="pill-row">
+              <label class="pill"><input type="radio" name="dist" value="all" checked /><span>전체</span></label>
+              <label class="pill"><input type="radio" name="dist" value="u3" /><span>3km 이하</span></label>
+              <label class="pill"><input type="radio" name="dist" value="35" /><span>3–5km</span></label>
+              <label class="pill"><input type="radio" name="dist" value="510" /><span>5–10km</span></label>
+              <label class="pill"><input type="radio" name="dist" value="10p" /><span>10km+</span></label>
+            </div>
+          </div>
+
+          <div class="f-group">
+            <h4>AREA · 지역</h4>
+            <select class="f-select" id="areaSel">
+              <option value="all">전체 지역</option>
+              <option value="한강">한강</option>
+              <option value="공원">공원</option>
+              <option value="도심">도심</option>
+              <option value="강변">강변</option>
+            </select>
+          </div>
+
+          <div class="f-group">
+            <h4>SORT · 정렬</h4>
+            <select class="f-select" id="sortSel">
+              <option value="safety">안전 점수 높은 순</option>
+              <option value="distAsc">거리 짧은 순</option>
+              <option value="distDesc">거리 긴 순</option>
+              <option value="name">이름 순</option>
+            </select>
+          </div>
+
+          <button class="f-reset" id="resetBtn">FILTER RESET</button>
+        </aside>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="results">
+        <div class="results-bar">
+          <span class="result-count" id="resultCount"></span>
+          <button class="near-btn" id="nearBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg>
+            내 주변
+          </button>
+          <button class="btn btn-ghost btn-sm mobile-filter-btn" id="mobileFilterBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+            FILTER
+          </button>
+          <p class="loc-note hidden" id="nearNote">데모 위치 <b>강남역</b> 기준 직선거리 순 정렬 중 — 실서비스에서는 Geolocation API가 사용됩니다.</p>
+        </div>
+
+        <div class="card-grid" id="courseGrid"></div>
+
+        <div class="map-view hidden" id="mapView">
+          <div class="map-frame"><div id="overviewMap"></div></div>
+          <aside class="map-panel">
+            <p class="foot-h" style="margin-bottom:10px">ROUTE PREVIEW</p>
+            <div id="mapPanelBody"></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="drawerHost"></div>
+
+  <footer class="site-foot">
+    <div class="container">
+      <div class="foot-bar" style="border-top:0">
+        <span>© 2026 <b>NIGHT RUNNER</b> — NIGHT URBAN RUNNING CURATION</span>
+        <span>LOCAL DEMO BUILD · HTML / CSS / JS · NO FRAMEWORK</span>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a data-nav="home" href="./index.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>HOME</a>
+    <a data-nav="courses" href="./courses.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.4"/><circle cx="18" cy="5" r="2.4"/><path d="M8.4 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"/></svg>COURSES</a>
+    <a data-nav="mate" href="./mate.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.7a3.2 3.2 0 0 1 0 5.6M17.6 14.9c1.6.8 2.6 2.4 2.9 4.6"/></svg>MATE</a>
+    <a data-nav="myrun" href="./my-run.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4 4.8 13a4.7 4.7 0 0 1 0-6.6 4.5 4.5 0 0 1 6.5 0l.7.7.7-.7a4.5 4.5 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6L12 20.4Z"/></svg>MY RUN</a>
+  </nav>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/map.js"></script>
+  <script src="./js/filter.js"></script>
+  <script src="./js/bookmark.js"></script>
+  <script src="./js/mate.js"></script>
+  <script src="./js/courses.js"></script>
+</body>
+</html>

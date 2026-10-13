@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080a0f" />
+  <meta name="description" content="Night Runner 코스 상세 — 거리 · 예상 시간 · 고저차 · 안전 점수 · 루트 맵 · 편의시설 · 러닝 메이트." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23080a0f'/%3E%3Cpath d='M17.5 13.2A6.3 6.3 0 0 1 10.3 6a6.3 6.3 0 1 0 7.2 7.2Z' fill='%23b6ff4a'/%3E%3C/svg%3E" />
+  <title>Course Detail — Night Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <div class="container head-in">
+      <a class="logo" href="./index.html" aria-label="Night Runner 홈">
+        <span class="logo-mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 13.6A8.4 8.4 0 0 1 10.4 4a8.4 8.4 0 1 0 9.6 9.6Z"/></svg></span>
+        <span class="logo-txt">NIGHT<b>RUNNER</b></span>
+      </a>
+      <nav class="nav" aria-label="주 메뉴">
+        <a class="nav-link" data-nav="courses" href="./courses.html">COURSES</a>
+        <a class="nav-link" data-nav="map" href="./courses.html?view=map">MAP</a>
+        <a class="nav-link" data-nav="mate" href="./mate.html">MATE</a>
+        <a class="nav-link" data-nav="myrun" href="./my-run.html">MY RUN</a>
+      </nav>
+      <div class="head-actions">
+        <a class="save-pill" href="./my-run.html" title="저장된 코스 보기">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4 4.8 13a4.7 4.7 0 0 1 0-6.6 4.5 4.5 0 0 1 6.5 0l.7.7.7-.7a4.5 4.5 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6L12 20.4Z"/></svg>
+          SAVED <span class="num tnum" data-saved-count>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-bottom:40px">
+    <div id="detailRoot"></div>
+    <noscript>
+      <div class="empty" style="margin-top:40px">
+        <h4>JavaScript가 필요합니다</h4>
+        <p>Night Runner는 JavaScript로 코스를 렌더링합니다. 브라우저 설정에서 JavaScript를 활성화해주세요.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="site-foot">
+    <div class="container">
+      <div class="foot-bar" style="border-top:0">
+        <span>© 2026 <b>NIGHT RUNNER</b> — NIGHT URBAN RUNNING CURATION</span>
+        <span>LOCAL DEMO BUILD · HTML / CSS / JS · NO FRAMEWORK</span>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" aria-label="모바일 메뉴">
+    <a data-nav="home" href="./index.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>HOME</a>
+    <a data-nav="courses" href="./courses.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.4"/><circle cx="18" cy="5" r="2.4"/><path d="M8.4 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"/></svg>COURSES</a>
+    <a data-nav="mate" href="./mate.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><path d="M15.5 5.7a3.2 3.2 0 0 1 0 5.6M17.6 14.9c1.6.8 2.6 2.4 2.9 4.6"/></svg>MATE</a>
+    <a data-nav="myrun" href="./my-run.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4 4.8 13a4.7 4.7 0 0 1 0-6.6 4.5 4.5 0 0 1 6.5 0l.7.7.7-.7a4.5 4.5 0 0 1 6.5 0 4.7 4.7 0 0 1 0 6.6L12 20.4Z"/></svg>MY RUN</a>
+  </nav>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/map.js"></script>
+  <script src="./js/filter.js"></script>
+  <script src="./js/bookmark.js"></script>
+  <script src="./js/mate.js"></script>
+  <script src="./js/detail.js"></script>
+</body>
+</html>
